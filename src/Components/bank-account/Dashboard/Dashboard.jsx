@@ -109,13 +109,10 @@ export default class Dashboard extends Component {
         inputValue: '',
       });
     }
-    const { balance } = this.state;
     const roundedValue = Math.round(value * 100) / 100;
     const transformedValue = Math.abs(roundedValue);
     this.setState({
-      inputValue:
-        Number(transformedValue) === 0 ? '' : Number(transformedValue),
-      isWithdrawEnable: !(transformedValue > balance),
+      inputValue: Number(transformedValue) === 0 ? 0 : Number(transformedValue),
     });
   };
 
